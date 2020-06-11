@@ -10,6 +10,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { InstrumentosComponent } from './components/instrumentos/instrumentos.component';
 import { SharedComponent } from './components/shared/shared.component';
 import { DondeEstamosComponent } from './components/donde-estamos/donde-estamos.component';
+import { InstruServService } from './service/instru-serv.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { DondeEstamosComponent } from './components/donde-estamos/donde-estamos.
     NgbPaginationModule,
     NgbAlertModule
   ],
-  providers: [],
+  providers: [InstruServService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

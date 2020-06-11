@@ -12,7 +12,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent }, 
     { path: 'instrumentos', component: InstrumentosComponent },
     { path: 'detalleInstrumento/:id', component: DetalleInstrumentoComponent },
-    { path: 'buscador/:termino', component: BuscadorComponent },
+    { path: 'buscar/:termino', component: BuscadorComponent },
     { path: 'shared', component: SharedComponent },
     { path: 'dondeEstamos', component: DondeEstamosComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' } 

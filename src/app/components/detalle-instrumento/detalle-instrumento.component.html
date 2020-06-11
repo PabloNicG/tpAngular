@@ -1,1 +1,39 @@
-<p>detalle-instrumento works!</p>
+<h2>{{instrumento.marca | uppercase }}</h2>
+<hr>
+
+
+
+
+
+<div class="container ">
+    <div class="card" style="background-color:rgba(204, 204, 204, 0.452);">
+        <div class="row justify-content-center">
+
+            <div class="col-4">
+                <br>
+                <img class="card-img-top" src="assets/img/{{instrumento.imagen}}" alt="Card image cap"
+                    style="max-height: 350px; max-width: 100%;  ">
+            </div>
+
+            <div class="col-6">
+                <div class="card-body">
+                    <h3 class="card-title">{{instrumento.instrumento}}</h3>
+                    <hr><br>
+                    <h5 class="card-subtitle mb-2 text-muted">Marca: {{instrumento.marca}}</h5>
+                    <h5 class="card-subtitle mb-2 text-muted">Modelo: {{instrumento.modelo}}</h5>
+                    <p class="card-text">{{instrumento.descripcion}}</p>
+                    <h5 class="card-subtitle mb-2 text-muted">Precio: {{instrumento.precio}}</h5>
+                    <p class="card-text"><small class="text-muted">Cantidad Vendida:
+                            {{instrumento.cantidadVendida}}</small></p>
+                    <a class="btn btn-outline-light btn-lg btn-block" style="background-color: rgba(189, 112, 199, 0.856)
+                            ;">Añadir al carrito</a>
+                    <a [routerLink]="['/instrumentos']" class="btn btn-outline-light btn-lg btn-block" style="background-color: rgb(216, 21, 79)
+                    ;">Regresar</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,1 +1,50 @@
-<p>buscador works!</p>
+<br>
+<div class="container-fluid">
+
+
+    <h1>Buscando: {{termino}}</h1>
+    <div class="card justify-content-md-center  ">
+
+        <div class="card-deck" *ngFor="let instrumento of instrumentoBuscar; let i = index"
+            style="max-width: 25%; padding: 30px;">
+
+            <div class="card-body border" style="background-color:rgba(204, 204, 204, 0.452);">
+                <img class="card-img-top" src="assets/img/{{instrumento.imagen}}" alt="Card image cap"
+                    style="max-height: 230px; max-width: 100%;">
+                <hr>
+                <h5 class="card-title">{{instrumento.instrumento}}</h5>
+                <div class="costoEnvio" *ngIf="instrumento.costoEnvio == 'G'; else elseBlock">
+                    <!-- <img src="assets/img/camion.png">Envio Gratis {{instrumento.costoEnvio}}</img> -->
+                    <span style="color:rgb(63, 170, 21);"><img src="assets/img/camion.png">
+                        {{instrumento.costoEnvio}} : Envio Gratis</span>
+                </div>
+
+                <div>
+                    <br>
+                    <!-- el br es para dar un espacio y que iguale a la otra tarjeta -->
+                    <ng-template #elseBlock>Costo Envio: ${{instrumento.costoEnvio}}</ng-template>
+                </div>
+
+
+                <span class="badge badge-primary" style="background-color: rgb(134, 134, 134)
+                ;">Precio $ {{instrumento.precio}}</span>
+                <hr>
+                <button (click)="verInstrumento(instrumento.id)" type="button"
+                    class="btn btn-outline-light btn-lg btn-block" style="background-color: rgb(144, 21, 216)
+                    ;">Detalle</button>
+
+
+            </div>
+            
+            
+            <!-- <div class="card-footer" style="text-align: center;">
+                
+            </div> -->
+        </div><br>
+            <div>
+                <a [routerLink]="['/instrumentos']" class="btn btn-outline-light" style="background-color: rgb(216, 21, 79)
+                    ;">Regresar al catalogo</a>
+            </div>
+    </div>
+
+</div>
