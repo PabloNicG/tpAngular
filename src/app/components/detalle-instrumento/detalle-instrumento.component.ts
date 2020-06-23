@@ -8,19 +8,39 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ["./detalle-instrumento.component.css"],
 })
 export class DetalleInstrumentoComponent implements OnInit {
-  instrumento: any;
+  
+  instrumentoBuscado: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private instruServService: InstruServService
   ) {
-    console.log("ID PARAM " + this.activatedRoute.params["id"]);
+    // console.log("ID PARAM " + this.activatedRoute.params["id"]);
 
-    this.activatedRoute.params.subscribe((params) => {
-      console.log(params["id"]);
-      this.instrumento = this.instruServService.getInstrumentoXId(params["id"]);
-    });
+    // this.activatedRoute.params.subscribe((params) => {
+    //   console.log(params["id"]);
+    //   this.instrumento = this.instruServService.getInstrumentoXId(params["id"]);
+    // });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.activatedRoute.params.subscribe(data =>{
+      if(data.id !== 0){
+        this.getInstrumento(data.id);
+      }
+    }
+    );
+}
+
+
+getInstrumento(id: number){
+  this.instruServService.getOne(id).subscribe(
+    res => {
+      this.instrumentoBuscado = res;
+    }, error =>{
+      console.log(error.message);
+    }
+  );
+}
 }

@@ -13,8 +13,8 @@ export class SharedComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  buscarInstrumento(textoBusqueda:string){
-    this.router.navigate(['/buscar', textoBusqueda]);
-  }
+  // buscarInstrumento(textoBusqueda:string){
+  //   this.router.navigate(['/buscar', textoBusqueda]);
+  // }
 
 }

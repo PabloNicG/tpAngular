@@ -1,3 +1,4 @@
+import { TablaComponent } from './components/Abm/tabla/tabla.component';
 import { DondeEstamosComponent } from './components/donde-estamos/donde-estamos.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,6 +11,7 @@ import { SharedComponent } from './components/shared/shared.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent }, 
+    { path: 'Abm', component: TablaComponent },
     { path: 'instrumentos', component: InstrumentosComponent },
     { path: 'detalleInstrumento/:id', component: DetalleInstrumentoComponent },
     { path: 'buscar/:termino', component: BuscadorComponent },

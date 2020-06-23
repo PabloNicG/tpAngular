@@ -1,39 +1,33 @@
-<h2>{{instrumento.marca | uppercase }}</h2>
-<hr>
-
-
-
-
-
-<div class="container ">
-    <div class="card" style="background-color:rgba(204, 204, 204, 0.452);">
-        <div class="row justify-content-center">
-
-            <div class="col-4">
-                <br>
-                <img class="card-img-top" src="assets/img/{{instrumento.imagen}}" alt="Card image cap"
-                    style="max-height: 350px; max-width: 100%;  ">
-            </div>
-
-            <div class="col-6">
-                <div class="card-body">
-                    <h3 class="card-title">{{instrumento.instrumento}}</h3>
-                    <hr><br>
-                    <h5 class="card-subtitle mb-2 text-muted">Marca: {{instrumento.marca}}</h5>
-                    <h5 class="card-subtitle mb-2 text-muted">Modelo: {{instrumento.modelo}}</h5>
-                    <p class="card-text">{{instrumento.descripcion}}</p>
-                    <h5 class="card-subtitle mb-2 text-muted">Precio: {{instrumento.precio}}</h5>
-                    <p class="card-text"><small class="text-muted">Cantidad Vendida:
-                            {{instrumento.cantidadVendida}}</small></p>
-                    <a class="btn btn-outline-light btn-lg btn-block" style="background-color: rgba(189, 112, 199, 0.856)
-                            ;">Añadir al carrito</a>
-                    <a [routerLink]="['/instrumentos']" class="btn btn-outline-light btn-lg btn-block" style="background-color: rgb(216, 21, 79)
-                    ;">Regresar</a>
-                </div>
-
-            </div>
-
+<div class="container mt-5">
+    <div class="row">
+      <div class="col border-right">
+        <img src="http://localhost:9001/api/v1/instrumentos/images/{{instrumentoBuscado.imagen}}" alt="Imagen producto"
+          class="imgDetails" />
+        <div class="descripcionInstrumento">
+          <h5>Descipción</h5>
+          <p>{{instrumentoBuscado.descripcion}}</p>
         </div>
+      </div>
+      <div class="col">
+        <p class="cantidadVendida">{{instrumentoBuscado.cantidadVendida}} vendidos</p>
+        <h3 class="tituloDescripcion">{{instrumentoBuscado.instrumento}}</h3>
+        <h2 class="precio">${{instrumentoBuscado.precio}}</h2>
+        <br />
+        <p>Marca: {{instrumentoBuscado.marca}}</p>
+        <p>Modelo: {{instrumentoBuscado.modelo}}</p>
+        <div *ngIf="instrumentoBuscado.costoEnvio == 'G'; else elseBlock" class="envioGratis">
+          <img src="http://localhost:9001/api/v1/instrumentos/images/camion.png" alt="camion"> Envío gratis a todo el país
+        </div>
+        <ng-template #elseBlock>
+          <span class="costoEnvio">Costo de envío interior de Argentina: {{instrumentoBuscado.costoEnvio}}</span>
+          <br>
+        </ng-template>
+        <br />
+        <button class="btn btn-primary">Agregar al carrito</button>
+      </div>
     </div>
-
-</div>
+    <div class="row">
+      <a class="btn btn-primary" href="/productos">Volver</a>
+    </div>
+  </div>
+  

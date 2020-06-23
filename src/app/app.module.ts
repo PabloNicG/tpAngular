@@ -11,6 +11,14 @@ import { InstrumentosComponent } from './components/instrumentos/instrumentos.co
 import { SharedComponent } from './components/shared/shared.component';
 import { DondeEstamosComponent } from './components/donde-estamos/donde-estamos.component';
 import { InstruServService } from './service/instru-serv.service';
+import { TablaComponent } from './components/Abm/tabla/tabla.component';
+import { ModalComponent } from './components/Abm/modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { TargetaComponent } from './components/shared/targeta/targeta.component';
+import { NavigateComponent } from './components/shared/navigate/navigate.component';
+
 
 @NgModule({
   declarations: [
@@ -21,15 +29,20 @@ import { InstruServService } from './service/instru-serv.service';
     BuscadorComponent,
     InstrumentosComponent,
     DondeEstamosComponent,
+    TablaComponent,
+    ModalComponent,
+    TargetaComponent,
+    NavigateComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
-    NgbPaginationModule,
-    NgbAlertModule
+    HttpClientModule,
+    FormsModule,
+    NgxPaginationModule
   ],
-  providers: [InstruServService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
